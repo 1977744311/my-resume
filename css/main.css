@@ -64,7 +64,7 @@ body main .self-introduce{ max-width: 940px; margin-right: auto; margin-left: au
 
 /*技能*/
 section.skills, section.portfolio{ max-width: 940px; margin-left: auto; margin-right: auto; margin-top: 60px; }
-section.skills > h2 , section.portfolio > h2 { text-align: center; color: #3d4451; font-size: 34px; line-height: 1.2; font-weight: 600; }
+section.skills > h2 , section.portfolio > h2 , section.messages > h2{ text-align: center; color: #3d4451; font-size: 34px; line-height: 1.2; font-weight: 600; }
 section.skills h3 { font-size: 14px; line-height: 1.1; padding-right: 40px; } .skills > ol{ background: #fff; box-shadow: 1px 3px 5px 0px rgba(15,14,15,0.5); padding: 42px 50px 10px; margin-top: 30px; }
 section.skills > ol > li { float: left; width: 48%; box-sizing: border-box; }
 section.skills > ol > li:nth-child(even) { float: right; }
@@ -85,3 +85,13 @@ section.portfolio > nav .bar.state-2 .bar-inner{ margin-left: 65px; width: 50px;
 section.portfolio > nav .bar.state-3 .bar-inner{ margin-left: 140px; width: 96px; }
 section.portfolio .swiper-button-prev, section.portfolio .swiper-button-next { background-color: white; width:64px; height: 64px; border-radius: 50%; left:auto; right:100%; }
 section.portfolio .swiper-button-next { right:auto; left:100%; }
+/*留言*/
+section.messages > ol{
+    border-top: 1px solid #ddd;
+    margin:0 auto;
+    width:700px;
+}
+section.messages > ol > li{
+    padding:5px 0;
+    border-bottom: 1px solid #ddd;
+}

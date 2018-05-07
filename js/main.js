@@ -3,14 +3,9 @@ for(let i =0;i<specialTags.length; i++){
     specialTags[i].classList.add('offset')
 }
 findClosest()
-window.onscroll = function(x){
-    if(window.scrollY > 0){
-        topNavBar.classList.add('sticky')
-    }else{
-        topNavBar.classList.remove('sticky')
-    }
-    findClosest()
-}
+window.addEventListener('scroll',function(){
+    findClosest() 
+})
 function findClosest(){
     let specialTags = document.querySelectorAll('[data-x]')
     let minIndex = 0

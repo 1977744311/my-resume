@@ -6,7 +6,6 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Swiper/4.2.6/css/swiper.min.css">
     <link rel="stylesheet" href="css/main.css">
     <link rel="stylesheet" href="css/loading.css">
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/Swiper/4.2.6/js/swiper.min.js"></script>
 </head>
 
 <body>
@@ -196,57 +195,47 @@
                 <div class="bar-inner"></div>
             </div>
         </nav>
-        <script>
-            all.onclick = function () {
-                portfolioBar.className = 'bar state-1'
-            }
-            frame.onclick = function () {
-                portfolioBar.className = 'bar state-2'
-            }
-            protogenesis.onclick = function () {
-                portfolioBar.className = 'bar state-3'
-            }
-        </script>
-
-        <div class="swiper-container">
-            <!-- Additional required wrapper -->
-            <div class="swiper-wrapper">
-                <!-- Slides -->
-                <img class="swiper-slide" src="./项目截图/canvas-demo.png" alt="">
-                <img class="swiper-slide" src="./项目截图/apple-slider.png" alt="">
-                <img class="swiper-slide" src="./项目截图/nav-demo.png" alt="">
+        <!-- view-slider -->
+        <div id="my-slider">
+            <div class="swiper-container">
+                <!-- Additional required wrapper -->
+                <div class="swiper-wrapper">
+                    <!-- Slides -->
+                    <img class="swiper-slide" src="./项目截图/canvas-demo.png" alt="">
+                    <img class="swiper-slide" src="./项目截图/apple-slider.png" alt="">
+                    <img class="swiper-slide" src="./项目截图/nav-demo.png" alt="">
+                </div>
+                <!-- If we need pagination -->
+                <div class="swiper-pagination"></div>
             </div>
-            <!-- If we need pagination -->
-            <div class="swiper-pagination"></div>
-        
-            <!-- If we need navigation buttons -->
-            
+            <div class="swiper-button-prev"></div>
+            <div class="swiper-button-next"></div>
+
         </div>
-        <div class="swiper-button-prev"></div>
-        <div class="swiper-button-next"></div>
-        <script>
-            var mySwiper = new Swiper('.swiper-container', {
-                // Optional parameters
-                loop: true,
+    </section>
+    <section class="messages">
+        <h2>留言</h2>
+        <ol id="messageList">
 
-                // If we need pagination
-                pagination: {
-                    el: '.swiper-pagination',
-                },
-
-                // Navigation arrows
-                navigation: {
-                    nextEl: '.swiper-button-next',
-                    prevEl: '.swiper-button-prev',
-                },
-            })
-        </script>
-
+        </ol>
+        <form action="" id="postMessage" style="width:700px;margin: 50px auto;">
+            姓名
+            <input type="text" name="name" id="">
+            内容
+            <input type="text" name="content" id="">
+            <input type="submit" value="提交">
+        </form>
     </section>
     <script src="//at.alicdn.com/t/font_593244_9kj6pygr18o7p66r.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/tween.js/17.1.1/Tween.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Swiper/4.2.6/js/swiper.min.js"></script>
+    <script src="//cdn1.lncld.net/static/js/3.6.8/av-min.js"></script>
     <script src="js/loading.js"></script>
     <script src="js/main.js"></script>
+    <script src="js/topnav-sticky.js"></script>
+    <script src="js/swiper-init.js"></script>
+    <script src="js/works-nav.js"></script>
+    <script src="js/messages.js"></script>
 </body>
 
 </html>

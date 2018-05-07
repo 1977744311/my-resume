@@ -1,0 +1,32 @@
+Arguments: 
+  /Users/guochengzhe/.nvm/versions/node/v9.0.0/bin/node /usr/local/Cellar/yarn/1.5.1_1/libexec/bin/yarn.js install leancloud-storage
+
+PATH: 
+  /Users/guochengzhe/.rvm/gems/ruby-2.4.1/bin:/Users/guochengzhe/.rvm/gems/ruby-2.4.1@global/bin:/Users/guochengzhe/.rvm/rubies/ruby-2.4.1/bin:/Users/guochengzhe/.rvm/gems/ruby-2.4.1/bin:/Users/guochengzhe/script:/Users/guochengzhe/local:/Users/guochengzhe/.rbenv/bin:/Users/guochengzhe/.nvm/versions/node/v9.0.0/bin:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/opt/fzf/bin:/Users/guochengzhe/.rvm/bin
+
+Yarn version: 
+  1.5.1
+
+Node version: 
+  9.0.0
+
+Platform: 
+  darwin x64
+
+npm manifest: 
+  No manifest
+
+yarn manifest: 
+  No manifest
+
+Lockfile: 
+  No lockfile
+
+Trace: 
+  Error: `install` has been replaced with `add` to add new dependencies. Run "yarn add leancloud-storage" instead.
+      at new MessageError (/usr/local/Cellar/yarn/1.5.1_1/libexec/lib/cli.js:186:110)
+      at Object.<anonymous> (/usr/local/Cellar/yarn/1.5.1_1/libexec/lib/cli.js:21987:13)
+      at Generator.next (<anonymous>)
+      at step (/usr/local/Cellar/yarn/1.5.1_1/libexec/lib/cli.js:98:30)
+      at /usr/local/Cellar/yarn/1.5.1_1/libexec/lib/cli.js:109:13
+      at <anonymous>
