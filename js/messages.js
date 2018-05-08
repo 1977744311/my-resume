@@ -1,29 +1,48 @@
 !function(){
     var view = document.querySelector('section.messages')
 
-    var controller = {
-        view: null,
-        messageList: null,
-        init: function(){
-            this.view = view
-            this.messageList = view.querySelector('#messageList')
-            this.form = view.querySelector('form')
-            this.initAV()
-            this.loadMessages()
-            this.bindEvents()
-        },
-        initAV: function(){
+    var model = {
+        //初始化
+        init: function () {
             var APP_ID = '5UGlrr1uEWLVOGgw2h834iua-gzGzoHsz'
             var APP_KEY = 'csLOF0yp0msY4bIx1zSplCMq'
 
             AV.init({
                 appId: APP_ID,
                 appKey: APP_KEY
+            })
+        },
+        //获取数据
+        fetch: function(){
+            var query = new AV.Query('Message');
+            return query.find()  //Promise 对象
+        },
+        //创建数据
+        save: function(name,content){
+            var Message = AV.Object.extend('Message');
+            var message = new Message();
+            return message.save({
+                'name': name,
+                'content': content
             }) 
+        }
+    }
+
+    var controller = {
+        view: null,
+        model: null,
+        messageList: null,
+        init: function(){
+            this.view = view
+            this.model = model
+            this.model.init()
+            this.messageList = view.querySelector('#messageList')
+            this.form = view.querySelector('form')
+            this.loadMessages()
+            this.bindEvents()
         },
         loadMessages: function(){
-            var query = new AV.Query('Message');
-            query.find().then((messages)=> {
+            this.model.fetch().then((messages)=> {
                 let array = messages.map((item) => item.attributes)
                 array.forEach((item) => {
                     let li = document.createElement('li')
@@ -40,23 +59,19 @@
                 e.preventDefault()
                 let content = myForm.querySelector('input[name=content]').value
                 let name = myForm.querySelector('input[name=name]').value
-                var Message = AV.Object.extend('Message');
-                var message = new Message();
-                message.save({
-                    'name': name,
-                    'content': content
-                }).then(function (object) {
+                this.model.save(name,content).then(function (object) {
                     let li = document.createElement('li')
                     li.innerText = `${object.attributes.name}：${object.attributes.content}`
                     let messageList = document.querySelector('#messageList')
                     messageList.appendChild(li)
+                    myForm.querySelector('input[name=content]').value = ''
                     console.log(object)
                 })
             }) 
         }
        
     }
-    controller.init(view)
+    controller.init(view,model)
 
 
 
