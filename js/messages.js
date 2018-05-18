@@ -1,45 +1,14 @@
 !function(){
-    var view = document.querySelector('section.messages')
+    var view = View('section.messages')
 
-    var model = {
-        //初始化
-        init: function () {
-            var APP_ID = '5UGlrr1uEWLVOGgw2h834iua-gzGzoHsz'
-            var APP_KEY = 'csLOF0yp0msY4bIx1zSplCMq'
+    var model = Model({resourceName: 'Message'})
 
-            AV.init({
-                appId: APP_ID,
-                appKey: APP_KEY
-            })
-        },
-        //获取数据
-        fetch: function(){
-            var query = new AV.Query('Message');
-            return query.find()  //Promise 对象
-        },
-        //创建数据
-        save: function(name,content){
-            var Message = AV.Object.extend('Message');
-            var message = new Message();
-            return message.save({
-                'name': name,
-                'content': content
-            }) 
-        }
-    }
-
-    var controller = {
-        view: null,
-        model: null,
-        messageList: null,
-        init: function(){
-            this.view = view
-            this.model = model
-            this.model.init()
-            this.messageList = view.querySelector('#messageList')
+    var controller = Controller({
+        init: function(view,model){
+            console.log(view)
             this.form = view.querySelector('form')
+            this.messageList = view.querySelector('#messageList')
             this.loadMessages()
-            this.bindEvents()
         },
         loadMessages: function(){
             this.model.fetch().then((messages)=> {
@@ -59,7 +28,7 @@
                 e.preventDefault()
                 let content = myForm.querySelector('input[name=content]').value
                 let name = myForm.querySelector('input[name=name]').value
-                this.model.save(name,content).then(function (object) {
+                this.model.save({'name':name,'content':content}).then(function (object) {
                     let li = document.createElement('li')
                     li.innerText = `${object.attributes.name}：${object.attributes.content}`
                     let messageList = document.querySelector('#messageList')
@@ -70,7 +39,7 @@
             }) 
         }
        
-    }
+    })
     controller.init(view,model)
 
 
